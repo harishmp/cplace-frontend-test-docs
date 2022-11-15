@@ -1,0 +1,75 @@
+{
+  "projectType": "library",
+  "root": "libs/cf-docs-test-lib",
+  "sourceRoot": "libs/cf-docs-test-lib/src",
+  "prefix": "cplace-frontend-test-docs",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/cf-docs-test-lib"],
+      "options": {
+        "project": "libs/cf-docs-test-lib/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/cf-docs-test-lib/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/cf-docs-test-lib/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/cf-docs-test-lib"],
+      "options": {
+        "jestConfig": "libs/cf-docs-test-lib/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/cf-docs-test-lib/src/**/*.ts",
+          "libs/cf-docs-test-lib/src/**/*.html"
+        ]
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "port": 4400,
+        "config": {
+          "configFolder": "libs/cf-docs-test-lib/.storybook"
+        },
+        "projectBuildConfig": "cf-docs-test-lib:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "outputPath": "dist/storybook/cf-docs-test-lib",
+        "config": {
+          "configFolder": "libs/cf-docs-test-lib/.storybook"
+        },
+        "projectBuildConfig": "cf-docs-test-lib:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

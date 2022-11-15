@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "projects": {
+    "cf-docs-test": "apps/cf-docs-test",
+    "cf-docs-test-lib": "libs/cf-docs-test-lib",
+    "cf-docs-test-lib-e2e": "apps/cf-docs-test-lib-e2e"
+  }
+}

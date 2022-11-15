@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.base.json",
+  "module": "commonjs",
+  "target": "ES2017",
+  "compilerOptions": {
+    "resolveJsonModule": true
+  },
+  "exclude": ["../**/*.spec.js", "../**/*.spec.ts", "../**/*.spec.tsx", "../**/*.spec.jsx"],
+  "include": ["../**/*"]
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/cf-docs-test-lib-e2e",
+  "sourceRoot": "apps/cf-docs-test-lib-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/cf-docs-test-lib-e2e/cypress.json",
+        "devServerTarget": "cf-docs-test-lib:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "cf-docs-test-lib:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/cf-docs-test-lib-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["cf-docs-test-lib"]
+}

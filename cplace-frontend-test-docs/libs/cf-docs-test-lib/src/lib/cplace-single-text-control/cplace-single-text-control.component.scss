@@ -1,0 +1,7 @@
+@use '~@cplace-next/cf-frontend-sdk/src/lib/styles/theme/theme.variables' as v;
+
+.cf-docs-test-lib-controls {
+    button {
+        margin: v.$inline-spacing;
+    }
+}
